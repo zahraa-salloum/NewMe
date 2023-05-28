@@ -1,0 +1,35 @@
+<div class="stepsdemo-content  h-screen">
+    <p-card class="bg-blue-200">
+        <ng-template pTemplate="title">
+            Medical Information
+        </ng-template>
+        <ng-template pTemplate="subtitle">
+            Enter your medical information
+        </ng-template>
+        <ng-template pTemplate="content">
+            <div class="p-fluid">
+                <div class="field p-3">
+                    <label for="allergy">Allergies</label>
+                    <p-multiSelect #allergy id="allergy" [options]="allergies" [(ngModel)]="signUpInfoService.user.selectedAllergies" optionLabel="name"></p-multiSelect>
+                 </div>
+                 
+
+                <div class="field p-3">
+                    <span class="p-float-label">
+                        <textarea id="float-input" rows="2" cols="80" [(ngModel)]="signUpInfoService.user.medicalIssues" pInputTextarea [autoResize]="true"></textarea>
+                        <label for="float-input">Diseases Or Health Conditions</label>
+                    </span>
+     
+                </div>
+             
+                
+            </div>
+        </ng-template>
+        <ng-template pTemplate="footer">
+            <div class="grid grid-nogutter col-12">
+                <p-button class="col-9 md:col-10 lg:col-11" label="Back" [routerLink]="['/signUp/general']" icon="pi pi-angle-left" iconPos="left"></p-button>
+                <p-button class="col-1" label="Skip"  [routerLink]="['/signUp/payment']" icon="pi pi-angle-right" iconPos="right"></p-button>
+            </div>
+        </ng-template>
+    </p-card>
+</div>

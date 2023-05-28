@@ -1,0 +1,49 @@
+<div class="stepsdemo-content  h-screen">
+    <p-card class="bg-blue-200">
+        <ng-template pTemplate="title">
+            General Information
+        </ng-template>
+        <ng-template pTemplate="subtitle">
+            Enter your general information
+        </ng-template>
+        <ng-template pTemplate="content">
+            <div class="p-fluid">
+                <div class="field p-1">
+                    <span class="p-float-label">
+                    <input #age="ngModel" id="age" type="number" required pInputText [(ngModel)]="signUpInfoService.user.age" [ngClass]="{'ng-dirty':(age.invalid && submitted) || (age.dirty && age.invalid)}"> 
+                    <label for="age">Age</label>
+                    <small class="p-error" *ngIf="(age.invalid && submitted) ||(age.dirty && age.invalid)">Age is required.</small>
+                    </span>
+                 </div>
+                 <div  class="field">
+                    <p-radioButton class="p-1" name="gender" value="Male" [(ngModel)]="signUpInfoService.user.gender" label="Male"></p-radioButton>
+                    <p-radioButton  class="p-1" name="gender" value="Female" [(ngModel)]="signUpInfoService.user.gender" label="Female"></p-radioButton>
+                </div>
+                <div class="field p-1">
+                    <span class="p-float-label">
+                    <input #height="ngModel" id="height" type="number" required pInputText [(ngModel)]="signUpInfoService.user.height" [ngClass]="{'ng-dirty': (height.invalid && submitted) || (height.dirty && height.invalid)}" pInputText>  
+                    <label for="height">Height(Meters)</label>
+                    <small class="p-error" *ngIf=" (height.invalid && submitted) ||(height.dirty && height.invalid)">height is required.</small>
+                    </span>
+                </div>
+                
+                <div class="field p-1">
+                    <span class="p-float-label">
+                    <input #weight="ngModel" id="weight" type="number" required pInputText [(ngModel)]="signUpInfoService.user.weight" [ngClass]="{'ng-dirty': (weight.invalid && submitted) ||(weight.dirty && weight.invalid)}" pInputText> 
+                    <label for="weight">Weight(Kg)</label>
+                    <small class="p-error" *ngIf="(weight.invalid && submitted) ||(weight.dirty && weight.invalid)">Weight is required.</small>
+                    </span>
+                </div>
+               
+                
+                
+            </div>
+        </ng-template>
+        <ng-template pTemplate="footer">
+            <div class="grid grid-nogutter col-12">
+                <p-button class="col-9 md:col-10 lg:col-11" label="Back"  [routerLink]="['/signUp/personal']" icon="pi pi-angle-left" iconPos="left"></p-button>
+                <p-button class="col-1" (onClick)="submittedMeth()" label="Next"  icon="pi pi-angle-right" iconPos="right"></p-button>
+            </div>
+        </ng-template>
+    </p-card>
+</div>

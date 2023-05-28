@@ -1,0 +1,140 @@
+<div class="stepsdemo-content  h-screen">
+    <p-card>
+        <ng-template pTemplate="title">
+           Please Confirm...
+        </ng-template>
+        <ng-template pTemplate="content">
+            <div class="grid grid-nogutter col-12">
+
+            <div class="col-12 md:col-6 lg:col-3"> 
+                <div class="field p-1">
+                <span class="p-float-label">
+                
+                <input #firstname="ngModel" id="firstname" type="text" required pInputText [(ngModel)]="signUpInfoService.user.firstName"  readonly pInputText /> 
+                <label for="firstname">Firstname</label>
+              
+                </span>
+            </div>
+            <div class="field p-1">
+                <span class="p-float-label">
+                <input #lastname="ngModel" id="lastname" type="text" required pInputText [(ngModel)]="signUpInfoService.user.lastName"  readonly pInputText> 
+                <label for="lastname">Lastname</label>
+       
+                </span>
+            </div>
+            <div class="field p-1">
+                <span class="p-float-label">
+                <input #email="ngModel" id="email" type="text" required pInputText [(ngModel)]="signUpInfoService.user.email" readonly pInputText>  
+                <label for="email">Email</label>
+           
+                </span>
+            </div>
+            
+            <div class="field p-1">
+                <span class="p-float-label">
+                <input #username="ngModel" id="username" type="text" required pInputText [(ngModel)]="signUpInfoService.user.userName" readonly pInputText> 
+                <label for="Username">Username</label>
+         
+                </span>
+            </div>
+        </div>
+            <div class="col-12 md:col-6 lg:col-3">
+            <div class="field p-1">
+                <span class="p-float-label">
+                <input #age="ngModel" id="age" type="text" required pInputText [(ngModel)]="signUpInfoService.user.age"  readonly> 
+                <label for="age">Age</label>
+               
+                </span>
+             </div>
+             <div  class="field p-1">
+                
+                <span class="p-float-label">
+                    <input #gender="ngModel" id="gender" type="text" required pInputText [(ngModel)]="signUpInfoService.user.gender"  readonly> 
+                    <label for="gender">Gender</label>
+                    </span>
+            </div>
+            <div class="field p-1">
+                <span class="p-float-label">
+                <input #height="ngModel" id="height" type="text" required pInputText [(ngModel)]="signUpInfoService.user.height" readonly pInputText>  
+                <label for="height">Height(Meters)</label>
+
+                </span>
+            </div>
+                <div class="field p-1">
+                    <span class="p-float-label">
+                    <input #weight="ngModel" id="weight" type="text" required pInputText [(ngModel)]="signUpInfoService.user.weight" readonly pInputText> 
+                    <label for="weight">Weight(Kg)</label>
+           
+                    </span>
+                </div>
+            
+        </div>
+            <div class="col-12 md:col-6 lg:col-3">
+               
+            
+               
+                 <span class="p-fluid p-2">
+                    <label for="allergy" class="text-sm ">Allergies</label>
+                    <p-autoComplete [style]="{'width':'250px'}" [inputStyle]="{'width':'250px'}"  id="allergy" [(ngModel)]="signUpInfoService.user.selectedAllergies"field="name" [multiple]="true" [readonly]="true">
+                    </p-autoComplete>
+                    
+                    
+                </span>
+
+                <div class="field p-2">
+                    <span class="p-float-label">
+                        <textarea id="float-input" rows="2" cols="23" [(ngModel)]="signUpInfoService.user.medicalIssues" pInputTextarea [autoResize]="true" readonly></textarea>
+                        <label for="float-input">Diseases Or Health Conditions</label>
+                    </span>
+     
+                </div>             
+    
+        </div>
+            <div class="col-12 md:col-6 lg:col-3">
+                <div class="field p-1">
+                    <span class="p-float-label">
+                    
+                    <input type="text" required pInputText [(ngModel)]="signUpInfoService.user.paymentInfo.cardHolderName" readonly> 
+                    <label for="class">Card Holder Name</label>
+                    </span>
+                    </div>
+                    <div class="field p-1">
+                    <span class="p-float-label">
+                    <p-inputMask inputId="number" mask="9999-9999-9999-9999" [(ngModel)]="signUpInfoService.user.paymentInfo.number" [readonly]="true" ></p-inputMask>
+                    <label id="number" for="lastname">Number</label>
+                     </span>
+            </div>
+                <div class="field p-1">
+                    <span class="p-float-label">
+                
+                <p-inputMask inputId="date" mask="99/99" [(ngModel)]="signUpInfoService.user.paymentInfo.date"  [readonly]="true"></p-inputMask>
+                <label id="date" for="date">Date</label>
+            </span>
+        </div>
+                <div class="field p-1">
+                    <span class="p-float-label">
+                <label for="cvv">CVV</label>
+                <p-inputMask id="cvv" mask="999" [(ngModel)]="signUpInfoService.user.paymentInfo.Cvv"  [readonly]="true"></p-inputMask>
+            </span>
+        </div>
+
+            </div>
+            
+
+
+           
+            
+            
+        </div>    
+        </ng-template>
+        <ng-template pTemplate="footer">
+            
+          
+
+            <div class="grid grid-nogutter col-12">
+                <p-button class="col-9 md:col-10 lg:col-10 " label="Back"   [routerLink]="['/signUp/medical']" icon="pi pi-angle-left" iconPos="left"></p-button>
+                <p-button class="col-2" label="Confirm"  icon="pi pi-angle-right" iconPos="right" styleClass="p-button-success"></p-button>
+            </div>
+        </ng-template>
+    </p-card>
+</div>

@@ -1,0 +1,75 @@
+
+<div class="stepsdemo-content  h-screen">
+    <p-card>
+        <ng-template pTemplate="title">
+            Personal Information
+        </ng-template>
+        <ng-template pTemplate="subtitle">
+            Enter your personal information
+        </ng-template>
+        
+        <ng-template pTemplate="content">
+           
+            <div class="p-fluid" formgrid>
+               
+                <div class="field p-1">
+                    <span class="p-float-label">
+                    
+                    <input #firstname="ngModel" id="firstname" type="text" required pInputText [(ngModel)]="signUpInfoService.user.firstName" [ngClass]="{'ng-dirty':(firstname.invalid && submitted) ||  (firstname.dirty && firstname.invalid)}" pInputText /> 
+                    <label for="firstname">Firstname</label>
+                    <small *ngIf="(firstname.invalid && submitted) || (firstname.dirty && firstname.invalid)" class="p-error">Firstname is required.</small>
+                    </span>
+                </div>
+                <div class="field p-1">
+                    <span class="p-float-label">
+                    <input #lastname="ngModel" id="lastname" type="text" required pInputText [(ngModel)]="signUpInfoService.user.lastName" [ngClass]="{'ng-dirty':(lastname.invalid && submitted) || (lastname.dirty && lastname.invalid)}" pInputText> 
+                    <label for="lastname">Lastname</label>
+                    <small class="p-error" *ngIf="(lastname.invalid && submitted) || (lastname.dirty && lastname.invalid)">Lastname is required.</small>
+                    </span>
+                </div>
+                <div class="field p-1">
+                    <span class="p-float-label">
+                    <input #email="ngModel" id="email" type="text" required pInputText [(ngModel)]="signUpInfoService.user.email" [ngClass]="{'ng-dirty':(email.invalid && submitted) || (email.dirty && email.invalid)}" pInputText>  
+                    <label for="email">Email</label>
+                    <small class="p-error" *ngIf="(email.invalid && submitted) || (email.dirty && email.invalid)">Email is required.</small>
+                    </span>
+                </div>
+                
+                <div class="field p-1">
+                    <span class="p-float-label">
+                    <input #username="ngModel" id="username" type="text" required pInputText [(ngModel)]="signUpInfoService.user.userName" [ngClass]="{'ng-dirty':(username.invalid && submitted) || (username.dirty && username.invalid)}" pInputText> 
+                    <label for="Username">Username</label>
+                    <small class="p-error" *ngIf="(username.invalid && submitted) ||(username.dirty && username.invalid)">Username is required.</small>
+                    </span>
+                </div>
+                <div class="field p-1">
+                    <span class="p-float-label">
+                    <input #password="ngModel" id="password" type="password" required pInputText [(ngModel)]="signUpInfoService.user.password" [ngClass]="{'ng-dirty':(password.invalid && submitted) ||  (password.dirty && password.invalid)}" pInputText> 
+                    <label for="password">Password</label>
+                    <small *ngIf="(password.invalid && submitted) || (password.dirty && password.invalid)" class="p-error">Password is required.</small>
+             
+                    </span>
+                </div>
+                <div class="field p-1">
+                    <span class="p-float-label">
+                    <input #password2="ngModel" id="password2" type="password" required pInputText [(ngModel)]="signUpInfoService.user.password2" [ngClass]="{'ng-dirty': (password2.invalid && submitted) || (password.dirty && password.invalid)}" pInputText> 
+                    <label for="password2">Confirm Password</label>
+                    <small *ngIf="(password2.invalid && submitted) || (password2.dirty && password2.invalid)" class="p-error">Password Confirm is required.</small>
+                    <small *ngIf="(passwordMatch  && submitted) || (password2.dirty && password2.invalid)" class="p-error">Passwords don't match</small>
+                    </span>
+                </div>
+            
+            </div>
+        
+     
+        </ng-template>
+        <ng-template pTemplate="footer">
+            <div  class="grid grid-nogutter col-12">
+                <p-button class="col-9 md:col-10 lg:col-11" label="Back" [routerLink]="['/']"  icon="pi pi-angle-left" iconPos="left"></p-button>
+                <p-button  class="col-1" label="Next" (onClick)="submittedMeth()" icon="pi pi-angle-right" iconPos="right"></p-button>
+            </div>
+        </ng-template>
+      
+       
+    </p-card>
+</div>
